@@ -1,0 +1,478 @@
+/* ==========================================================
+   PORTFÓLIO HELOISA OLIVEIRA MARTINHO - FOLHA DE ESTILOS
+   Identidade: Oceano profundo, tons azuis escuros e ciano luminoso
+   Tipografia: Comfortaa
+   ========================================================== */
+
+:root {
+  /* Paleta Oceânica (Identidade Visual) */
+  --bg-abyss-deep: #020712;
+  --bg-abyss-mid: #051226;
+  --bg-ocean-card: rgba(6, 26, 51, 0.55);
+  
+  /* Cores de Destaque */
+  --accent-cyan: #00e5ff;
+  --accent-cyan-glow: rgba(0, 229, 255, 0.35);
+  --accent-blue-light: #38bdf8;
+  --accent-blue-deep: #0284c7;
+  
+  /* Textos */
+  --text-primary: #f0f8ff;
+  --text-secondary: #94a9c9;
+  --text-muted: #597398;
+  
+  /* Tipografia */
+  --font-family: 'Comfortaa', cursive, sans-serif;
+  
+  /* Transições */
+  --transition-smooth: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Reset Global */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--bg-abyss-deep);
+}
+
+body {
+  font-family: var(--font-family);
+  background: radial-gradient(circle at 50% 30%, #061938 0%, var(--bg-abyss-mid) 45%, var(--bg-abyss-deep) 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================
+   CURSOR PERSONALIZADO (REFERÊNCIA: ESTHER WONG EM AZUL OCEANO)
+   ========================================================== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(0, 229, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.2);
+}
+
+/* Estado ativo do cursor sobre elementos interativos */
+.cursor-ring.cursor-active {
+  width: 52px;
+  height: 52px;
+  border-color: var(--accent-cyan);
+  background-color: rgba(0, 229, 255, 0.12);
+  box-shadow: 0 0 22px rgba(0, 229, 255, 0.45);
+}
+
+/* Desativação do cursor em telas sensíveis ao toque */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* ==========================================================
+   CANVAS DE LINHAS LUMINOSAS (REFERÊNCIA: IMG1 / LINHAS BRILHANTES)
+   ========================================================== */
+.ocean-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ==========================================================
+   SEÇÃO HERO (TOPO)
+   ========================================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem 2rem;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Portal Oceânico Central de Fundo (Referência aengel.io) */
+.ocean-portal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portal-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.18);
+  filter: blur(0.5px);
+}
+
+.portal-ring.ring-1 {
+  width: 480px;
+  height: 480px;
+  border-color: rgba(0, 229, 255, 0.25);
+  animation: rotatePortal 35s linear infinite;
+}
+
+.portal-ring.ring-2 {
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  animation: rotatePortalReverse 25s linear infinite;
+}
+
+.portal-ring.ring-3 {
+  width: 240px;
+  height: 240px;
+  border: 1px dotted rgba(0, 229, 255, 0.35);
+  animation: rotatePortal 18s linear infinite;
+}
+
+.portal-glow {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.18) 0%, rgba(2, 132, 199, 0.08) 50%, transparent 75%);
+  filter: blur(35px);
+  border-radius: 50%;
+  animation: pulseGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes rotatePortal {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotatePortalReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0.9; }
+}
+
+/* Metadados Técnicos / Coordenadas (Referência aengel.io / img2) */
+.hero-coord {
+  position: absolute;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-coord.top-left {
+  top: 2rem;
+  left: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-coord.top-right {
+  top: 2rem;
+  right: 2.5rem;
+}
+
+.coord-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-cyan);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+/* Conteúdo Principal */
+.hero-container {
+  max-width: 860px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+}
+
+/* Badge Superior */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  background: rgba(6, 26, 51, 0.6);
+  border: 1px solid rgba(0, 229, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-bottom: 1.8rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.badge-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.badge-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--accent-blue-light);
+  text-transform: uppercase;
+}
+
+/* Nome em Destaque */
+.hero-title {
+  font-size: clamp(2.4rem, 6.2vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.4rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 30%, #b8e6fe 70%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.2));
+}
+
+/* Frase de Apresentação */
+.hero-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin-bottom: 2.6rem;
+}
+
+/* Botão de Chamada para Ação (CTA) */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2.2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(8, 30, 58, 0.7);
+  border: 1px solid rgba(0, 229, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.15), inset 0 0 12px rgba(0, 229, 255, 0.1);
+}
+
+.btn-cta .btn-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  color: var(--accent-cyan);
+}
+
+.btn-cta .btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.25), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-cta:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(12, 42, 80, 0.85);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 229, 255, 0.35), inset 0 0 16px rgba(0, 229, 255, 0.25);
+}
+
+.btn-cta:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+.btn-cta:hover .btn-glow {
+  left: 100%;
+}
+
+.btn-cta:active {
+  transform: translateY(-1px);
+}
+
+/* Indicador de Rolagem */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
+}
+
+.scroll-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, rgba(0, 229, 255, 0.6), transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-dot {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 3px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: var(--accent-cyan);
+  box-shadow: 0 0 6px var(--accent-cyan);
+  animation: scrollDown 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-8px); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: translateY(34px); opacity: 0; }
+}
+
+/* ==========================================================
+   RESPONSIVIDADE (CELULARES E TABLETS)
+   ========================================================== */
+@media (max-width: 768px) {
+  .hero-coord {
+    display: none;
+  }
+
+  .ocean-portal {
+    width: 420px;
+    height: 420px;
+  }
+
+  .portal-ring.ring-1 {
+    width: 340px;
+    height: 340px;
+  }
+
+  .portal-ring.ring-2 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .portal-ring.ring-3 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-section {
+    padding: 3rem 1.25rem 2rem;
+  }
+
+  .hero-badge {
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .btn-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+  }
+
+  .badge-text {
+    font-size: 0.75rem;
+  }
+}
