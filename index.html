@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio de Heloisa Oliveira Martinho - Técnica em Tecnologia da Informação">
-  <title>Heloisa Oliveira Martinho | Portfólio</title>
+  <meta name="description" content="Portfólio Oceânico de Heloisa Oliveira Martinho - Técnica em Tecnologia da Informação">
+  <title>Heloisa Oliveira Martinho | Portfólio Oceânico</title>
 
   <!-- Tipografia Comfortaa (Identidade Visual) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,37 +15,215 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- CURSOR PERSONALIZADO (REFERÊNCIA: ESTHER WONG EM TONS AZUIS) -->
+  <!-- ============================================== -->
+  <!-- CURSOR PERSONALIZADO (REFERÊNCIA: ESTHER WONG)  -->
+  <!-- ============================================== -->
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-  <!-- CANVAS DE CORRENTES LUMINOSAS OCEÂNICAS (REFERÊNCIA: IMG1 / OCEANO ABISSAL) -->
+  <!-- ============================================== -->
+  <!-- CANVAS DE BOLHAS, CORRENTES E PEIXES REATIVOS   -->
+  <!-- ============================================== -->
   <canvas id="oceanCanvas" class="ocean-canvas" aria-hidden="true"></canvas>
 
   <!-- ============================================== -->
-  <!-- SEÇÃO HERO (TOPO)                              -->
+  <!-- ANIMAÇÕES DE VIDA MARINHA FLUTUANTE            -->
   <!-- ============================================== -->
-  <section id="hero" class="hero-section" aria-label="Apresentação inicial">
-    <!-- Portal Oceânico / Atmosfera de Fundo (Referência aengel.io) -->
-    <div class="ocean-portal" aria-hidden="true">
-      <div class="portal-ring ring-1"></div>
-      <div class="portal-ring ring-2"></div>
-      <div class="portal-ring ring-3"></div>
-      <div class="portal-glow"></div>
+  
+  <!-- 1. Baleia Bioluminescente (Referência aengel.io) -->
+  <div class="marine-creature abyssal-whale-container" id="whaleContainer" aria-hidden="true">
+    <svg class="whale-svg" viewBox="0 0 160 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="whaleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8" />
+          <stop offset="60%" stop-color="#2dd4bf" stop-opacity="0.5" />
+          <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2" />
+        </linearGradient>
+      </defs>
+      <!-- Corpo suave da baleia com contorno luminescente -->
+      <path class="whale-body" d="M145 32 C135 15, 110 8, 80 12 C55 15, 30 22, 10 25 C5 26, 2 28, 2 30 C2 32, 5 34, 10 35 C30 38, 55 45, 80 48 C110 52, 135 45, 145 32 Z" fill="url(#whaleGlow)" />
+      <!-- Cauda articulada -->
+      <path class="whale-tail" d="M142 32 C150 24, 158 16, 155 12 C152 14, 148 22, 145 30 C148 38, 152 46, 155 48 C158 44, 150 36, 142 32 Z" />
+      <!-- Nadadeira peitoral -->
+      <path class="whale-fin" d="M85 36 C75 48, 62 56, 58 54 C56 52, 65 42, 75 35 Z" />
+      <!-- Olho bioluminescente -->
+      <circle class="whale-eye" cx="22" cy="28" r="2" />
+      <!-- Linhas luminescentes ventrais -->
+      <path class="whale-light-stripe" d="M30 32 Q65 40 100 37" />
+      <path class="whale-light-stripe" d="M40 36 Q75 44 110 39" opacity="0.6" />
+    </svg>
+  </div>
+
+  <!-- 2. Água-Viva Bioluminescente (Jellyfish) -->
+  <div class="marine-creature jellyfish-container" id="jellyfishContainer" aria-hidden="true">
+    <svg class="jellyfish-svg" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="jellyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.8" />
+          <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.45" />
+          <stop offset="100%" stop-color="#0284c7" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <!-- Cúpula Translúcida -->
+      <path class="jelly-bell" d="M15 50 C15 15, 85 15, 85 50 C85 62, 75 66, 68 62 C60 58, 55 65, 50 62 C45 65, 40 58, 32 62 C25 66, 15 62, 15 50 Z" fill="url(#jellyGrad)" stroke="#5eead4" stroke-width="1.4" />
+      <!-- Núcleo interior brilhante -->
+      <ellipse cx="50" cy="42" rx="18" ry="12" fill="#e0f7fa" opacity="0.6" filter="blur(1px)" />
+      <!-- Tentáculos Ondulantes -->
+      <path class="jelly-tentacle t1" d="M30 62 Q25 85 32 105 T28 125" stroke="#2dd4bf" stroke-width="1.4" fill="none" />
+      <path class="jelly-tentacle t2" d="M42 63 Q48 85 40 105 T45 128" stroke="#00f0ff" stroke-width="1.8" fill="none" />
+      <path class="jelly-tentacle t3" d="M58 63 Q52 85 60 105 T55 128" stroke="#00f0ff" stroke-width="1.8" fill="none" />
+      <path class="jelly-tentacle t4" d="M70 62 Q75 85 68 105 T72 125" stroke="#5eead4" stroke-width="1.4" fill="none" />
+      <!-- Braços orais centrais com ondulação -->
+      <path class="jelly-oral" d="M47 62 Q52 82 48 110" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3 3" fill="none" />
+      <path class="jelly-oral" d="M53 62 Q48 82 52 110" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3 3" fill="none" />
+    </svg>
+  </div>
+
+  <!-- 3. Tartaruga Marinha Graciosa (Sea Turtle) -->
+  <div class="marine-creature turtle-container" id="turtleContainer" aria-hidden="true">
+    <svg class="turtle-svg" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="shellGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.85" />
+          <stop offset="70%" stop-color="#0284c7" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#062d54" stop-opacity="0.9" />
+        </radialGradient>
+      </defs>
+      <!-- Nadadeiras Frontais -->
+      <path class="turtle-flipper front-top" d="M68 35 C78 12, 105 10, 112 18 C115 25, 95 38, 76 40 Z" fill="#14b8a6" stroke="#5eead4" stroke-width="1.2" />
+      <path class="turtle-flipper front-bottom" d="M68 55 C78 78, 105 80, 112 72 C115 65, 95 52, 76 50 Z" fill="#14b8a6" stroke="#5eead4" stroke-width="1.2" />
+      <!-- Nadadeiras Traseiras -->
+      <path class="turtle-flipper back-top" d="M30 38 C22 28, 10 30, 8 36 C10 42, 22 43, 28 42 Z" fill="#0d9488" stroke="#5eead4" stroke-width="1" />
+      <path class="turtle-flipper back-bottom" d="M30 52 C22 62, 10 60, 8 54 C10 48, 22 47, 28 48 Z" fill="#0d9488" stroke="#5eead4" stroke-width="1" />
+      <!-- Casco Oval com Padrão Marinho -->
+      <ellipse class="turtle-shell" cx="48" cy="45" rx="30" ry="22" fill="url(#shellGrad)" stroke="#5eead4" stroke-width="1.6" />
+      <!-- Placas do casco -->
+      <polygon points="48,34 56,39 56,51 48,56 40,51 40,39" fill="none" stroke="#e0f7fa" stroke-width="1.2" opacity="0.7" />
+      <path d="M48 34 L48 24 M56 39 L68 35 M56 51 L68 55 M48 56 L48 66 M40 51 L28 55 M40 39 L28 35" stroke="#e0f7fa" stroke-width="1" opacity="0.6" />
+      <!-- Cabeça com olhar amigável -->
+      <ellipse cx="88" cy="45" rx="10" ry="7" fill="#14b8a6" stroke="#5eead4" stroke-width="1.2" />
+      <circle cx="92" cy="43" r="1.5" fill="#ffffff" />
+    </svg>
+  </div>
+
+  <!-- 4. Golfinho Brincalhão (Dolphin) -->
+  <div class="marine-creature dolphin-container" id="dolphinContainer" aria-hidden="true">
+    <svg class="dolphin-svg" viewBox="0 0 130 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dolphinGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+          <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+          <stop offset="60%" stop-color="#0284c7" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.85" />
+        </linearGradient>
+      </defs>
+      <!-- Corpo Curvado Hidrodinâmico -->
+      <path class="dolphin-body" d="M12 36 C25 24, 60 16, 95 24 C112 28, 126 34, 128 38 C126 40, 116 38, 104 38 C75 39, 45 48, 25 44 C18 42, 14 38, 12 36 Z" fill="url(#dolphinGrad)" stroke="#7dd3fc" stroke-width="1.2" />
+      <!-- Barbatana Dorsal -->
+      <path d="M60 18 C66 8, 76 6, 80 10 C78 17, 72 20, 68 21 Z" fill="#0284c7" stroke="#7dd3fc" stroke-width="1" />
+      <!-- Barbatana Peitoral -->
+      <path d="M82 36 C86 46, 76 52, 70 48 C72 42, 76 38, 80 36 Z" fill="#38bdf8" stroke="#7dd3fc" stroke-width="1" />
+      <!-- Cauda / Fluke -->
+      <path d="M14 36 C6 30, 2 24, 2 28 C6 33, 10 36, 12 37 C10 38, 6 41, 2 46 C2 50, 6 44, 14 38 Z" fill="#0284c7" stroke="#7dd3fc" stroke-width="1" />
+      <!-- Olho e Boca Curvada -->
+      <circle cx="115" cy="34" r="1.5" fill="#ffffff" />
+      <path d="M120 38 Q124 39 127 38" stroke="#ffffff" stroke-width="0.8" />
+    </svg>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- BARRA DE NAVEGAÇÃO FIXA (MENU SUBMARINO)        -->
+  <!-- ============================================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Ir para o início oceânico">
+        <!-- Ícone Marinho Elegante -->
+        <span class="logo-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12c3-4 6-4 9 0 3 4 6 4 9 0 3-4 6-4 9 0"></path>
+            <path d="M2 17c3-4 6-4 9 0 3 4 6 4 9 0 3-4 6-4 9 0" opacity="0.6"></path>
+          </svg>
+        </span>
+        <span class="logo-text">Heloisa Martinho</span>
+        <span class="logo-sub">T.I.</span>
+      </a>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <!-- Links de Navegação (Sem seção de Projetos) -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Início</a></li>
+          <li class="nav-item"><a href="#sobre" class="nav-link">Sobre Mim</a></li>
+          <li class="nav-item"><a href="#explorador" class="nav-link">Imersão</a></li>
+          <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+
+        <!-- Botão Alternador de Tema (Superfície vs Abismo) -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo claro e escuro" title="Alternar tema de profundidade">
+          <span class="theme-icon icon-sun" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon icon-moon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-label" id="themeLabel">Modo Superfície</span>
+        </button>
+      </nav>
     </div>
 
-    <!-- Metadados Técnicos Sutis (Estilo aengel.io / Wireframe Abissal) -->
+    <!-- Barra de Progresso de Profundidade Subaquática -->
+    <div class="depth-progress-bar" id="depthProgressBar" aria-hidden="true"></div>
+  </header>
+
+  <!-- ============================================== -->
+  <!-- SEÇÃO 1: HERO (SUPERFÍCIE E APRESENTAÇÃO)      -->
+  <!-- ============================================== -->
+  <section id="hero" class="hero-section" aria-label="Apresentação inicial">
+    <!-- Efeito de Raios de Sol Subaquáticos (Caustics / God Rays) -->
+    <div class="sun-caustics" aria-hidden="true">
+      <div class="sun-ray ray-1"></div>
+      <div class="sun-ray ray-2"></div>
+      <div class="sun-ray ray-3"></div>
+      <div class="sun-ray ray-4"></div>
+    </div>
+
+    <!-- Portal Oceânico / Vortex de Água (Referência aengel.io) -->
+    <div class="ocean-portal" id="heroPortal" aria-hidden="true">
+      <div class="portal-wave-ring ring-1"></div>
+      <div class="portal-wave-ring ring-2"></div>
+      <div class="portal-wave-ring ring-3"></div>
+      <div class="portal-aquaglow"></div>
+    </div>
+
+    <!-- Coordenadas Técnicas de Sonar -->
     <div class="hero-coord top-left" aria-hidden="true">
-      <span class="coord-dot"></span> PROFUNDIDADE: 240M // ABISSAL
+      <span class="coord-dot"></span> PROFUNDIDADE: 120M 
     </div>
     <div class="hero-coord top-right" aria-hidden="true">
-      STATUS: ONLINE // BR-SP
+      STATUS: IMERSÃO ATIVA 
     </div>
 
     <!-- Conteúdo Central da Hero -->
     <div class="hero-container">
       <div class="hero-badge">
-        <span class="badge-pulse"></span>
+        <span class="badge-bubble"></span>
         <span class="badge-text">Técnica em Tecnologia da Informação</span>
       </div>
 
@@ -54,31 +232,466 @@
       </h1>
 
       <p class="hero-subtitle">
-        Desenvolvendo soluções digitais que conectam tecnologia, elegância e experiências interativas pelo oceano da web.
+        Navegando pelas correntes da tecnologia, desenvolvendo soluções digitais e conectadas às profundezas da web.
       </p>
 
       <div class="hero-actions">
-        <a href="#projetos" class="btn-cta" id="ctaButton">
-          <span class="btn-text">Explorar Projetos</span>
+        <a href="#sobre" class="btn-cta btn-primary" id="ctaButton">
+          <span class="btn-text">Submergir</span>
           <span class="btn-icon" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
+              <path d="M12 5v14M19 12l-7 7-7-7"/>
             </svg>
           </span>
           <span class="btn-glow" aria-hidden="true"></span>
         </a>
+        <a href="#explorador" class="btn-cta btn-secondary">
+          <span class="btn-text">Explorar</span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+          </span>
+        </a>
       </div>
     </div>
 
-    <!-- Indicador de Navegação Inferior -->
+    <!-- Indicador de Rolagem com Bolhas Subindo -->
     <div class="hero-scroll-indicator" aria-hidden="true">
-      <span class="scroll-label">rolar para navegar</span>
-      <div class="scroll-line">
-        <span class="scroll-dot"></span>
+      <span class="scroll-label">rolar para submergir</span>
+      <div class="scroll-bubble-track">
+        <span class="scroll-bubble b1"></span>
+        <span class="scroll-bubble b2"></span>
+        <span class="scroll-bubble b3"></span>
       </div>
     </div>
+
+    <!-- Divisor com Ondas Suaves SVG -->
+    <div class="wave-divider wave-bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+        <path class="wave-layer wave-layer-1" d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,58.7C672,43,768,21,864,21.3C960,21,1056,43,1152,53.3C1248,64,1344,64,1392,64L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+        <path class="wave-layer wave-layer-2" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+      </svg>
+    </div>
   </section>
+
+  <!-- ============================================== -->
+  <!-- SEÇÃO 2: SOBRE MIM (ZONA PELÁGICA)             -->
+  <!-- ============================================== -->
+  <section id="sobre" class="section-block about-section" aria-label="Sobre Heloisa Oliveira Martinho">
+    <div class="section-container">
+      
+      <div class="section-header reveal-item">
+        <div class="section-tag">
+          <span class="tag-pulse"></span>
+          <span>SOBRE MIM</span>
+        </div>
+        <h2 class="section-title">Tecnologia</h2>
+        <p class="section-lead">
+          Conheça minha trajetória técnica na Tecnologia da Informação, estruturando soluções, com dedicação e metodologias.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Coluna da Foto / Avatar Submarino com Vidro Submerso -->
+        <div class="about-photo-wrapper reveal-item">
+          <div class="photo-frame submerged-glass">
+            <div class="glass-reflection" aria-hidden="true"></div>
+            <div class="photo-glow" aria-hidden="true"></div>
+            
+            <div class="photo-avatar">
+              <!-- Artefato visual de perfil estilizado com tons oceânicos e bússola marinha -->
+              <div class="avatar-ocean-art">
+                <svg viewBox="0 0 200 200" class="avatar-svg" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.9" />
+                      <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.8" />
+                      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.9" />
+                    </linearGradient>
+                    <radialGradient id="avatarCore" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#072b4a" />
+                      <stop offset="100%" stop-color="#021124" />
+                    </radialGradient>
+                  </defs>
+                  <!-- Anéis de bússola marinha e telemetria -->
+                  <circle cx="100" cy="100" r="90" stroke="url(#avatarGrad)" stroke-width="1.8" fill="none" stroke-dasharray="8,5" class="compass-ring" />
+                  <circle cx="100" cy="100" r="78" fill="url(#avatarCore)" stroke="rgba(45, 212, 191, 0.3)" stroke-width="1.2" />
+                  <!-- Silhueta técnica elegante -->
+                  <circle cx="100" cy="72" r="24" fill="#0284c7" />
+                  <path d="M50 148 C50 118 72 112 100 112 C128 112 150 118 150 148 Z" fill="url(#avatarGrad)" />
+                  <!-- Ondas decorativas de base -->
+                  <path d="M55 152 Q75 146 100 150 T145 152" stroke="#e0f7fa" stroke-width="2" fill="none" />
+                </svg>
+              </div>
+              <div class="avatar-info-card">
+                <span class="avatar-name">Heloisa O. Martinho</span>
+                <span class="avatar-role">Técnica em T.I.</span>
+                <span class="avatar-subtext"> Técnica & Inovação</span>
+              </div>
+            </div>
+
+            <!-- Cantoneiras Náuticas -->
+            <div class="photo-corner corner-tl"></div>
+            <div class="photo-corner corner-tr"></div>
+            <div class="photo-corner corner-bl"></div>
+            <div class="photo-corner corner-br"></div>
+          </div>
+        </div>
+
+        <!-- Coluna de Texto e Competências Técnicas (Tom Direto e Breve) -->
+        <div class="about-content reveal-item">
+          <div class="about-card submerged-glass">
+            <h3 class="about-subtitle">Perfil Profissional</h3>
+            <p class="about-paragraph">
+              Sou formada como <strong>Técnica em Tecnologia da Informação</strong>. Minha atuação é pautada na resolução prática de desafios lógicos, desenvolvimento web organizado, suporte a infraestrutura e modelagem de dados.
+            </p>
+            <p class="about-paragraph">
+              Busco transformar conceitos complexos em aplicações fluidas, acessíveis e eficientes, mantendo o código limpo, sem dependências desnecessárias e totalmente responsivo para qualquer dispositivo.
+            </p>
+
+            <!-- Habilidades Técnicas / Pilares de Formação -->
+            <div class="skills-section">
+              <h4 class="skills-title">Competências Técnicas</h4>
+              <div class="skills-grid">
+                <div class="skill-item">
+                  <span class="skill-dot"></span>
+                  <div class="skill-text">
+                    <strong>Desenvolvimento Web</strong>
+                    <span>HTML5, CSS3, JavaScript, React</span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <span class="skill-dot"></span>
+                  <div class="skill-text">
+                    <strong>Banco de Dados</strong>
+                    <span>Modelagem relacional, integridade e consultas SQL</span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <span class="skill-dot"></span>
+                  <div class="skill-text">
+                    <strong>Redes & Infraestrutura</strong>
+                    <span>Protocolos de rede, conexões locais e diagnóstico</span>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <span class="skill-dot"></span>
+                  <div class="skill-text">
+                    <strong>Suporte & Hardware</strong>
+                    <span>Manutenção preventiva, configuração e suporte a sistemas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botão de Contato Rápido -->
+            <div class="about-cta-row">
+              <a href="#contato" class="btn-cta btn-primary">
+                <span class="btn-text">Conversar Comigo</span>
+                <span class="btn-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Divisor Suave com Corais Flutuantes -->
+    <div class="wave-divider wave-middle" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none">
+        <path class="wave-layer wave-layer-3" d="M0,45 C240,15 480,75 720,45 C960,15 1200,75 1440,45 L1440,90 L0,90 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- SEÇÃO 3: IMERSÃO OCEÂNICA & MÓDULO EXPANSIVO   -->
+  <!-- (REFERÊNCIA: aengel.io / img2)                 -->
+  <!-- ============================================== -->
+  <section id="explorador" class="section-block explorer-section" aria-label="Módulo interativo de exploração submarina">
+    <div class="section-container">
+      
+      <div class="section-header reveal-item">
+        <div class="section-tag">
+          <span class="tag-pulse"></span>
+          <span>IMERSÃO SUBMARINA</span>
+        </div>
+        <h2 class="section-title"> Oportunidades Tecnológicas</h2>
+        <p class="section-lead">
+          Passe o mouse ou toque no módulo para modular a profundidade submarina, ativar reflexos de luz e alternar frequências.
+        </p>
+      </div>
+
+      <!-- Quadrado Interativo Expansivo (Referência img2 / aengel.io) -->
+      <div class="interactive-box-wrapper reveal-item">
+        <div class="abyss-cube submerged-glass" id="abyssCube" tabindex="0" role="region" aria-label="Controlador interativo de profundidade e cor">
+          <div class="cube-glow" id="cubeGlow"></div>
+          <div class="glass-reflection" aria-hidden="true"></div>
+          
+          <div class="cube-header">
+            <span class="cube-coord" id="cubeCoord"></span>
+            <span class="cube-depth-tag" id="cubeDepth"></span>
+          </div>
+
+          <div class="cube-center">
+            <div class="cube-icon-ring">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+            </div>
+            <h3 class="cube-title">Conheça-me</h3>
+            <p class="cube-desc">
+              A tecnologia funciona como as correntes oceânicas: constante, conectada e impulsionando novas possibilidades digitais.
+            </p>
+            <span class="cube-hint">veja!</span>
+          </div>
+
+          <div class="cube-footer">
+            <div class="cube-stat">
+              <span class="stat-number">+20</span>
+              <span class="stat-label">Trabalhos criados</span>
+            </div>
+            <div class="cube-stat">
+              <span class="stat-number">Grande</span>
+              <span class="stat-label">Qualidade</span>
+            </div>
+            <div class="cube-stat">
+              <span class="stat-number">Total</span>
+              <span class="stat-label">Responsividade</span>
+            </div>
+          </div>
+
+          <div class="cube-corner tl"></div>
+          <div class="cube-corner tr"></div>
+          <div class="cube-corner bl"></div>
+          <div class="cube-corner br"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- SEÇÃO 4: FORMULÁRIO DE CONTATO (ZONA ABISSAL)  -->
+  <!-- ============================================== -->
+  <section id="contato" class="section-block contact-section" aria-label="Formulário de Contato">
+    <div class="section-container">
+      
+      <div class="section-header reveal-item">
+        <div class="section-tag">
+          <span class="tag-pulse"></span>
+          <span> CONTATO</span>
+        </div>
+        <h2 class="section-title">Vamos Construir Conexões</h2>
+        <p class="section-lead">
+          Interessado em colaborar em soluções de T.I., desenvolvimento web ou infraestrutura? Transmita sua mensagem direta abaixo.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Informações de Contato Direto -->
+        <div class="contact-info-card submerged-glass reveal-item">
+          <div class="glass-reflection" aria-hidden="true"></div>
+          <h3 class="info-card-title">Canais de Contato</h3>
+          <p class="info-card-desc">
+            Estou aberta a novas oportunidades profissionais, projetos inovadores e troca de conhecimentos na área técnica.
+          </p>
+
+          <ul class="contact-details-list">
+            <li class="contact-detail-item">
+              <div class="detail-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">E-mail Profissional</span>
+                <a href="mailto:heloisa.martinho.ti@gmail.com" class="detail-value">heloisa.martinho.ti@gmail.com</a>
+              </div>
+            </li>
+
+            <li class="contact-detail-item">
+              <div class="detail-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">Localização</span>
+                <span class="detail-value">Campinas - SP, Brasil</span>
+              </div>
+            </li>
+
+            <li class="contact-detail-item">
+              <div class="detail-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">Status Profissional</span>
+                <span class="detail-value">Disponível para Novos Projetos</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="network-badge">
+            <span class="network-bubble"></span>
+            <span>Comunicação criptografada & retorno rápido</span>
+          </div>
+        </div>
+
+        <!-- Formulário de Contato com Validação JS Puro -->
+        <div class="contact-form-wrapper submerged-glass reveal-item">
+          <div class="glass-reflection" aria-hidden="true"></div>
+          <form class="contact-form" id="contactForm" novalidate>
+            
+            <div class="form-group">
+              <label for="contactName" class="form-label">Seu Nome *</label>
+              <div class="input-container">
+                <input type="text" id="contactName" name="name" class="form-input" placeholder="Ex: Ana Silva" required autocomplete="name">
+                <span class="input-focus-border"></span>
+              </div>
+              <span class="error-feedback" id="nameError">Por favor, preencha o seu nome.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Seu E-mail *</label>
+              <div class="input-container">
+                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="nome@exemplo.com" required autocomplete="email">
+                <span class="input-focus-border"></span>
+              </div>
+              <span class="error-feedback" id="emailError">Insira um endereço de e-mail válido.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject" class="form-label">Assunto *</label>
+              <div class="input-container">
+                <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="Ex: Proposta de Projeto ou Oportunidade" required>
+                <span class="input-focus-border"></span>
+              </div>
+              <span class="error-feedback" id="subjectError">Por favor, informe o assunto da mensagem.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">Mensagem *</label>
+              <div class="input-container">
+                <textarea id="contactMessage" name="message" class="form-textarea" rows="4" placeholder="Descreva brevemente sua solicitação ou ideia..." required></textarea>
+                <span class="input-focus-border"></span>
+              </div>
+              <span class="error-feedback" id="messageError">A mensagem deve ter pelo menos 10 caracteres.</span>
+            </div>
+
+            <!-- Botão de Envio com Efeito Aquático -->
+            <button type="submit" class="btn-cta btn-submit" id="submitBtn">
+              <span class="btn-text">Transmitir Mensagem</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </span>
+              <span class="btn-glow" aria-hidden="true"></span>
+            </button>
+
+            <!-- Mensagem de Sucesso (Validação JS) -->
+            <div class="form-status-alert success-alert" id="formSuccessAlert" role="alert" aria-live="polite">
+              <div class="alert-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="alert-text">
+                <strong>Mensagem transmitida com sucesso!</strong>
+                <span>Obrigada pelo contato! Responderei o mais breve possível.</span>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- CORAIS E ANÊMONAS DECORATIVOS NO FUNDO DO MAR  -->
+  <!-- ============================================== -->
+  <div class="seabed-corals" aria-hidden="true">
+    <svg viewBox="0 0 1440 160" fill="none" preserveAspectRatio="none" class="coral-svg">
+      <defs>
+        <linearGradient id="coralGradLeft" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#02142b" />
+          <stop offset="60%" stop-color="#0f766e" stop-opacity="0.6" />
+          <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0.8" />
+        </linearGradient>
+        <linearGradient id="coralGradRight" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#02142b" />
+          <stop offset="60%" stop-color="#0369a1" stop-opacity="0.6" />
+          <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.8" />
+        </linearGradient>
+      </defs>
+      <!-- Corais da Esquerda -->
+      <path class="coral-branch c1" d="M30 160 C32 120, 20 90, 35 60 C38 52, 45 54, 42 62 C38 80, 48 100, 46 160 Z" fill="url(#coralGradLeft)" />
+      <path class="coral-branch c2" d="M60 160 C65 110, 80 85, 75 40 C72 32, 85 30, 84 42 C82 70, 75 100, 78 160 Z" fill="url(#coralGradLeft)" />
+      <path class="coral-branch c3" d="M100 160 C95 130, 115 105, 120 70 C122 62, 130 65, 128 75 C124 95, 110 125, 114 160 Z" fill="url(#coralGradLeft)" />
+      <!-- Anêmona e algas balançando -->
+      <path class="seaweed s1" d="M150 160 Q170 110 155 70 T165 20 Q150 70 145 110 Z" fill="rgba(45, 212, 191, 0.45)" />
+      <path class="seaweed s2" d="M180 160 Q165 120 185 80 T175 35 Q190 80 175 120 Z" fill="rgba(94, 234, 212, 0.35)" />
+      
+      <!-- Corais da Direita -->
+      <path class="coral-branch c4" d="M1410 160 C1408 120, 1420 90, 1405 60 C1402 52, 1395 54, 1398 62 C1402 80, 1392 100, 1394 160 Z" fill="url(#coralGradRight)" />
+      <path class="coral-branch c5" d="M1370 160 C1365 110, 1350 85, 1355 40 C1358 32, 1345 30, 1346 42 C1348 70, 1355 100, 1352 160 Z" fill="url(#coralGradRight)" />
+      <path class="seaweed s3" d="M1310 160 Q1290 110 1305 70 T1295 25 Q1310 70 1300 110 Z" fill="rgba(0, 240, 255, 0.35)" />
+      <path class="seaweed s4" d="M1270 160 Q1285 120 1265 80 T1275 30 Q1260 80 1270 120 Z" fill="rgba(56, 189, 248, 0.35)" />
+    </svg>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- RODAPÉ (FOOTER OCEÂNICO)                       -->
+  <!-- ============================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">Heloisa Oliveira Martinho</span>
+        <p class="footer-sub">Técnica em Tecnologia da Informação // Explorando as profundezas da inovação digital.</p>
+      </div>
+
+      <!-- Navegação do Rodapé (Sem seção de Projetos) -->
+      <div class="footer-nav">
+        <a href="#hero">Início</a>
+        <a href="#sobre">Sobre Mim</a>
+        <a href="#explorador">Imersão</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; 2026 Heloisa Oliveira Martinho. Desenvolvido em HTML5, CSS3 e JavaScript puro.
+        </p>
+        <div class="footer-badge">
+          <span class="badge-dot"></span>
+          <span>Profundidade Oceânica Segura</span>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Script Principal -->
   <script src="script.js"></script>
